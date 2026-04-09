@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="hero" class="hero">
+    <div class="slider-container">
+        <!-- Slide 1: AI/ML Developer -->
+        <div class="slide active">
+            <h1 class="gradient-text">AI/ML Developer</h1>
+            <p>Building predictive models and deploying generative AI solutions.</p>
+            <div class="hero-actions">
+                <a href="#skills" class="btn btn-primary">Explore Skills</a>
+                <a href="#resume" class="btn btn-outline">Download Resume</a>
+            </div>
+        </div>
+
+        <!-- Slide 2: Python Developer -->
+        <div class="slide">
+            <h1 class="gradient-text">Python Developer</h1>
+            <p>Crafting robust backends, automation scripts, and RESTful APIs.</p>
+            <div class="hero-actions">
+                <a href="#skills" class="btn btn-primary">Explore Skills</a>
+                <a href="#resume" class="btn btn-outline">Download Resume</a>
+            </div>
+        </div>
+
+        <!-- Slide 3: Data Analyst -->
+        <div class="slide">
+            <h1 class="gradient-text">Data Analyst</h1>
+            <p>Transforming complex datasets into actionable business insights.</p>
+            <div class="hero-actions">
+                <a href="#skills" class="btn btn-primary">Explore Skills</a>
+                <a href="#resume" class="btn btn-outline">Download Resume</a>
+            </div>
+        </div>
+
+        <div class="slider-dots">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+    <div class="glass" style="padding: 2rem;">
+        <p>Hi, I'm Aayush Kayasth. I specialize in bridging the gap between data-driven insights and robust software engineering. Whether it's training deep learning models, engineering scalable Python backends using Django, or visualizing complex data, I thrive on solving challenging problems.</p>
+    </div>
+</section>
+
+<!-- Resume Hub Section -->
+<section id="resume">
+    <h2 class="section-title">My <span class="gradient-text">Resumes</span></h2>
+    <div class="resume-grid">
+        <div class="glass resume-card">
+            <i class="fas fa-brain resume-icon"></i>
+            <h3>AI/ML Developer</h3>
+            <a href="/media/resumes/Aayush_Kayasth_AI_ML_Developer_Resume.pdf" class="btn btn-primary" download>Download</a>
+        </div>
+        <div class="glass resume-card">
+            <i class="fab fa-python resume-icon"></i>
+            <h3>Python Developer</h3>
+            <a href="/media/resumes/Ayush_kayasth_Python_developer_Resume.pdf" class="btn btn-primary" download>Download</a>
+        </div>
+        <div class="glass resume-card">
+            <i class="fas fa-chart-bar resume-icon"></i>
+            <h3>Data Analyst</h3>
+            <a href="/media/resumes/Ayush_Kayasth_Data_Analyst_Resume.pdf" class="btn btn-primary" download>Download</a>
+        </div>
+    </div>
+</section>
+
+{% comment %} <!-- Experience Section -->
+<section id="experience">
+    <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+    <div class="timeline">
+        {% for exp in experience %}
+        <div class="timeline-item">
+            <div class="glass timeline-content">
+                <span class="date">{{ exp.duration }}</span>
+                <h3>{{ exp.role }}</h3>
+                <p><strong>{{ exp.company }}</strong></p>
+                <p>{{ exp.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section> {% endcomment %}
+
+<!-- Skills Section -->
+<section id="skills">
+    <h2 class="section-title">Tech <span class="gradient-text">Stack</span></h2>
+    <div class="skills-grid">
+        {% for skill_group in skills %}
+        <div class="glass skill-card">
+            <h3>{{ skill_group.category }}</h3>
+            <div class="skill-tags">
+                {% for item in skill_group.items %}
+                <span class="skill-tag">{{ item }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+    <div class="projects-grid">
+        {% for project in projects %}
+        <div class="glass project-card">
+            <h3>{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="skill-tags" style="margin-bottom: 1.5rem;">
+                {% for tech in project.technologies %}
+                <span class="skill-tag" style="background: rgba(255,255,255,0.05); border:none; font-size: 0.75rem;">{{ tech }}</span>
+                {% endfor %}
+            </div>
+            <a href="{{ project.link }}" target="_blank" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;">View Source <i class="fab fa-github project-demo-icon"></i></a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+    <div class="glass" style="max-width: 600px; margin: 0 auto; padding: 2rem; text-align: center;">
+        <p style="margin-bottom: 2rem; color: var(--text-secondary);">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+        <a href="mailto:aayushkayasth934@gmail.com" class="btn btn-primary" style="margin-bottom: 1rem;"><i class="fas fa-envelope"></i> Send an Email</a>
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'js/slider.js' %}"></script>
+{% endblock scripts %}

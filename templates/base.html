@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aayush Kayasth | Portfolio</title>
+    <meta name="description" content="Aayush Kayasth - AI/ML Developer, Data Analyst, and Python Developer Portfolio">
+    {% load static %}
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+    <div id="particles-js"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Ayush Kayasth's portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resumes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="socials">
+                <a href="https://github.com/aayushkayasth" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="www.linkedin.com/in/ayush-kayasth-728aba373" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:aayushkayasth934@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2024 Aayush Kayasth. Designed with Python & Django.</p>
+        </div>
+    </footer>
+
+    {% block scripts %}
+    {% endblock scripts %}
+    <script src="{% static 'js/cursor.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="{% static 'js/particles-config.js' %}"></script>
+</body>
+</html>
